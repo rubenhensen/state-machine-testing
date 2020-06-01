@@ -1,0 +1,33 @@
+{
+  "name": "state-machine-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "ts-node lib/state_machine_example/CoffeeMachine.ts",
+    "tsc": "tsc lib/state_machine_example/CoffeeMachine.ts",
+    "test": "ts-node node_modules/jasmine/bin/jasmine.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenhensen/state-machine-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubenhensen/state-machine-testing/issues"
+  },
+  "homepage": "https://github.com/rubenhensen/state-machine-testing#readme",
+  "dependencies": {
+    "@types/jasmine": "^3.5.10",
+    "jasmine": "^3.5.0",
+    "ts-node": "^8.10.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  }
+}
