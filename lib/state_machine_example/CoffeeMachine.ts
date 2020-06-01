@@ -55,12 +55,14 @@ class TenCentState implements State {
     }
     pushCoffeeButton() {
         console.log("koffie!");
+        this.coffeeMachine.decrementCoffee();
         this.coffeeMachine.setState(this.coffeeMachine.getZeroCentState());
     }
 }
 
 export class CoffeeMachine {
     private currentState: State;
+    private coffeeWeight: number;
     private zeroCentState: State = new ZeroCentState(this);
     private fiveCentState: State = new FiveCentState(this);
     private tenCentState: State = new TenCentState(this);
@@ -68,7 +70,13 @@ export class CoffeeMachine {
     setState(state : State) {
         this.currentState = state;
     }
-
+    decrementCoffee() {
+        if (this.coffeeWeight <= 0) {
+            throw "Out of coffee";
+        } else {
+            this.coffeeWeight -= 10;
+        }
+    }
     getZeroCentState() {
         return this.zeroCentState;
     }
@@ -80,6 +88,7 @@ export class CoffeeMachine {
     }
     constructor() {
         this.currentState = this.zeroCentState;
+        this.coffeeWeight = 100;
     }
 
     transition(input: String) {
